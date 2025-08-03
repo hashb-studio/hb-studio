@@ -5,7 +5,12 @@ import React from "react";
 
 const Homepage = () => {
   const t = useTranslations("HomePage");
-  return <h1>{t("title")}</h1>;
+  return (
+    <>
+      <h1>{t("title")}</h1>
+      <p>test</p>
+    </>
+  );
 };
 
 export default Homepage;
