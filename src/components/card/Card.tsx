@@ -14,11 +14,12 @@ export const Card = ({
   hasRadiusBorder = false,
   displayInLine = false,
   context = "default",
-  hoverText,
-  hoverLink,
-  size,
+  mediaWidth,
+  mediaheight,
   marginTop,
   marginBottom,
+  marginRight,
+  marginLeft,
 }: {
   imageUrlPortrait?: string;
   imageUrlLandscape?: string;
@@ -27,11 +28,12 @@ export const Card = ({
   hasRadiusBorder?: boolean;
   displayInLine?: boolean;
   context?: "carousel" | "default";
-  hoverText?: string;
-  hoverLink?: string;
-  size?: string;
+  mediaWidth?: string;
+  mediaheight?: string;
   marginTop?: string;
   marginBottom?: string;
+  marginRight?: string;
+  marginLeft?: string;
 }) => {
   const orientation = useOrientation();
   const isPortrait = orientation === Orientation.Portrait;
@@ -41,29 +43,20 @@ export const Card = ({
 
   const isSquareFullWidth = !isLaptop && isPortrait;
 
-  const wrapperStyle: React.CSSProperties = {
+  const cardStyle = {
     width:
-      !isSquareFullWidth && size
-        ? size
+      !isSquareFullWidth && mediaWidth
+        ? mediaWidth
         : isSquareFullWidth
           ? "100%"
           : context === "carousel"
             ? "50vw"
-            : "30vw",
-    marginTop: marginTop || undefined,
-    marginBottom: marginBottom || undefined,
-    alignItems: "flex-start",
-  };
-
-  const cardStyle = {
-    "--card-width": isSquareFullWidth
-      ? "100%"
-      : context === "carousel"
-        ? "50vw"
-        : !isSquareFullWidth && size
-          ? size
-          : "30vw",
-    "--card-height": context === "carousel" ? "70vh" : "30vh",
+            : "100%",
+    marginTop: (!isSquareFullWidth && marginTop) || undefined,
+    marginBottom: (!isSquareFullWidth && marginBottom) || undefined,
+    marginRight: (!isSquareFullWidth && marginRight) || undefined,
+    marginLeft: (!isSquareFullWidth && marginLeft) || undefined,
+    height: !isSquareFullWidth && mediaheight ? mediaheight : undefined,
     "--card-aspect": isSquareFullWidth ? "1 / 1" : "initial",
   } as React.CSSProperties & { [key: string]: string };
 
@@ -72,7 +65,7 @@ export const Card = ({
   } as React.CSSProperties;
 
   return (
-    <div className={cx("card__wrapper")} style={wrapperStyle}>
+    <div>
       <figure
         className={cx("card__media", {
           "card__media--hasBorderRadius": hasRadiusBorder,
@@ -89,25 +82,10 @@ export const Card = ({
             borderRadius: hasRadiusBorder ? "1rem" : "0",
           }}
         />
-        {hoverText &&
-          (hoverLink ? (
-            <a
-              href={hoverLink}
-              className={cx("card__hoverOverlay", "card__hoverLink")}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span>{hoverText}</span>
-            </a>
-          ) : (
-            <div className={cx("card__hoverOverlay")}>
-              <h2>{hoverText}</h2>
-            </div>
-          ))}
       </figure>
 
       <div
-        className={cx("card__content", {
+        className={cx("content", {
           "content--inline": displayInLine,
         })}
         style={contentStyle}

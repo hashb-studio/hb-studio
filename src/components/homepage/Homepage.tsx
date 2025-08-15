@@ -12,7 +12,12 @@ type CardType = {
   hasRadiusBorder?: boolean;
   hoverText?: string;
   hoverLink?: string;
-  size?: "s" | "l" | "xl";
+  mediaWidth?: string;
+  mediaheight?: string;
+  marginTop?: string;
+  marginBottom?: string;
+  marginRight?: string;
+  marginLeft?: string;
 };
 
 export const payload = {
@@ -26,6 +31,9 @@ export const payload = {
       imageUrlLandscape: "https://fillthis.io/i/400x400",
       title: "Carte 1",
       description: "Description 1",
+      hoverText: "See more",
+      mediaWidth: "40vw",
+      mediaheight: "50vh",
     },
     {
       marginTop: "20vw",
@@ -33,13 +41,17 @@ export const payload = {
       imageUrlLandscape: "https://fillthis.io/i/400x400",
       title: "Carte 2",
       description: "Description 2",
-      size: "20vw",
+      mediaheight: "35vh",
+      mediaWidth: "35vw",
     },
     {
+      mediaWidth: "35vw",
+      mediaheight: "35vh",
       imageUrlPortrait: "https://fillthis.io/i/400x400",
       imageUrlLandscape: "https://fillthis.io/i/400x400",
       title: "Carte 3",
       description: "Description 3",
+      marginRight: "10vw",
     },
     {
       marginTop: "10vw",
@@ -47,13 +59,14 @@ export const payload = {
       imageUrlLandscape: "https://fillthis.io/i/400x400",
       title: "Carte 4",
       description: "Description 4",
+      mediaWidth: "37vw",
     },
     {
       imageUrlPortrait: "https://fillthis.io/i/400x400",
       imageUrlLandscape: "https://fillthis.io/i/400x400",
       title: "Carte 5",
       description: "Description 5",
-      size: "50vw",
+      mediaWidth: "50vw",
     },
   ] as CardType[],
 };
