@@ -4,6 +4,7 @@ import classNames from "classnames/bind";
 import { Orientation, useOrientation } from "@/hooks/useOrientation";
 import { useAboveTablet } from "@/hooks/useMediaQuery";
 import Cursor from "../Cursor/Cursor";
+import { useScroll, useTransform, motion } from "framer-motion";
 
 const cx = classNames.bind(styles);
 
@@ -75,40 +76,48 @@ export const Card = ({
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const checkCursorVisibility = () => {
-      if (containerRef.current) {
-        const rect = containerRef.current.getBoundingClientRect();
-        const isInside =
-          cursorPos.x >= rect.left &&
-          cursorPos.x <= rect.right &&
-          cursorPos.y >= rect.top &&
-          cursorPos.y <= rect.bottom;
+    if (!containerRef.current) return;
 
-        setCursorVisible(isInside);
-      }
-    };
+    const handleEnter = () => setCursorVisible(true);
+    const handleLeave = () => setCursorVisible(false);
 
-    checkCursorVisibility();
-    window.addEventListener("scroll", checkCursorVisibility);
+    const el = containerRef.current;
+    el.addEventListener("mouseenter", handleEnter);
+    el.addEventListener("mouseleave", handleLeave);
 
     return () => {
-      window.removeEventListener("scroll", checkCursorVisibility);
+      el.removeEventListener("mouseenter", handleEnter);
+      el.removeEventListener("mouseleave", handleLeave);
     };
-  }, [cursorPos]);
+  }, []);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1.1, 1.0]);
 
   return (
     <div>
-      <figure
+      <motion.figure
         className={cx("card__media", {
           "card__media--hasBorderRadius": hasRadiusBorder,
         })}
         style={cardStyle}
         ref={containerRef}
-        onMouseMove={(e) => setCursorPos({ x: e.clientX, y: e.clientY })}
+        onMouseMove={(e) => {
+          const rect = containerRef.current!.getBoundingClientRect();
+          setCursorPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+        }}
         onMouseEnter={() => setCursorVisible(true)}
         onMouseLeave={() => setCursorVisible(false)}
+        initial={{ scale: 1 }}
+        whileHover={{ scale: 0.97 }}
+        transition={{ type: "spring", stiffness: 150, damping: 20 }}
       >
-        <img
+        <motion.img
           src={imageUrl}
           alt={title || "card image"}
           style={{
@@ -116,10 +125,21 @@ export const Card = ({
             height: "100%",
             objectFit: "cover",
             borderRadius: hasRadiusBorder ? "1rem" : "0",
+            y,
           }}
+          initial={{ scale: 1 }}
+          whileHover={{ scale: 1.15 }}
+          transition={{ type: "spring", stiffness: 120, damping: 20 }}
         />
-        {cursorVisible && <Cursor position={cursorPos} />}
-      </figure>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: cursorVisible ? 1 : 0 }}
+          transition={{ duration: 0.2 }}
+          style={{ position: "absolute", pointerEvents: "none" }}
+        >
+          <Cursor position={cursorPos} />
+        </motion.div>
+      </motion.figure>
 
       <div
         className={cx("content", {
