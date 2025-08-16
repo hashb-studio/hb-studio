@@ -2,20 +2,6 @@
   padding: 2rem;
   background-color: #ff6b6b;
 
-  &__header {
-    text-align: center;
-    margin-bottom: 8rem;
-
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
-    p {
-      font-size: 1rem;
-      color: #666;
-    }
-  }
-
   &__grid {
     display: grid;
     grid-template-columns: 1fr;

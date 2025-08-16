@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./Card.module.scss";
 import classNames from "classnames/bind";
 import { Orientation, useOrientation } from "@/hooks/useOrientation";
 import { useAboveTablet } from "@/hooks/useMediaQuery";
+import Cursor from "../Cursor/Cursor";
 
 const cx = classNames.bind(styles);
 
@@ -44,6 +45,7 @@ export const Card = ({
   const isSquareFullWidth = !isLaptop && isPortrait;
 
   const cardStyle = {
+    cursor: "none",
     width:
       !isSquareFullWidth && mediaWidth
         ? mediaWidth
@@ -64,6 +66,36 @@ export const Card = ({
     width: cardStyle["--card-width"],
   } as React.CSSProperties;
 
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    setCursorPos({ x: e.clientX, y: e.clientY });
+  };
+
+  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
+  const [cursorVisible, setCursorVisible] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const checkCursorVisibility = () => {
+      if (containerRef.current) {
+        const rect = containerRef.current.getBoundingClientRect();
+        const isInside =
+          cursorPos.x >= rect.left &&
+          cursorPos.x <= rect.right &&
+          cursorPos.y >= rect.top &&
+          cursorPos.y <= rect.bottom;
+
+        setCursorVisible(isInside);
+      }
+    };
+
+    checkCursorVisibility();
+    window.addEventListener("scroll", checkCursorVisibility);
+
+    return () => {
+      window.removeEventListener("scroll", checkCursorVisibility);
+    };
+  }, [cursorPos]);
+
   return (
     <div>
       <figure
@@ -71,6 +103,10 @@ export const Card = ({
           "card__media--hasBorderRadius": hasRadiusBorder,
         })}
         style={cardStyle}
+        ref={containerRef}
+        onMouseMove={(e) => setCursorPos({ x: e.clientX, y: e.clientY })}
+        onMouseEnter={() => setCursorVisible(true)}
+        onMouseLeave={() => setCursorVisible(false)}
       >
         <img
           src={imageUrl}
@@ -82,6 +118,7 @@ export const Card = ({
             borderRadius: hasRadiusBorder ? "1rem" : "0",
           }}
         />
+        {cursorVisible && <Cursor position={cursorPos} />}
       </figure>
 
       <div
