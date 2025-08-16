@@ -67,10 +67,6 @@ export const Card = ({
     width: cardStyle["--card-width"],
   } as React.CSSProperties;
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    setCursorPos({ x: e.clientX, y: e.clientY });
-  };
-
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [cursorVisible, setCursorVisible] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -97,7 +93,6 @@ export const Card = ({
   });
 
   const y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1.1, 1.0]);
 
   return (
     <div>
