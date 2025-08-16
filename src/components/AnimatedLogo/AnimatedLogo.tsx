@@ -5,24 +5,22 @@ export const AnimatedLogo = () => {
   return (
     <div className={styles.logoWrapper}>
       <svg
-        viewBox="0 0 200 200"
+        viewBox="0 0 220 220"
         className={styles.logo}
         xmlns="http://www.w3.org/2000/svg"
       >
-        <circle cx="100" cy="100" r="90" stroke="#333" fill="none" />
-
-        <text>
-          <textPath href="#circlePath" startOffset="50%" textAnchor="middle">
-            HB Studio • HB Studio • HB Studio
-          </textPath>
-        </text>
-
         <defs>
           <path
             id="circlePath"
-            d="M100,100 m-90,0 a90,90 0 1,1 180,0 a90,90 0 1,1 -180,0"
+            d="M110,110 m-100,0 a100,100 0 1,1 200,0 a100,100 0 1,1 -200,0"
           />
         </defs>
+
+        <text fontSize="14" fill="#333">
+          <textPath href="#circlePath" startOffset="50%" textAnchor="middle">
+            HB STUDIO • HB STUDIO • HB STUDIO •
+          </textPath>
+        </text>
       </svg>
     </div>
   );

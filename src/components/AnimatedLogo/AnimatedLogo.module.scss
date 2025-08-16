@@ -6,18 +6,19 @@
   align-items: center;
   position: absolute;
   top: 65px;
-  right: 170px;
+  right: 180px;
 }
 
 .logo {
   width: 100%;
   height: 100%;
   animation: rotate 10s linear infinite;
+  overflow: visible;
 
   text {
     font-family: "HelveticaNeue", Helvetica, Arial, sans-serif;
     font-weight: 700;
-    font-size: 34px;
+    font-size: 32px;
     fill: #ff6b6b;
   }
 }
