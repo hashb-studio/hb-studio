@@ -55,7 +55,8 @@ export const payload = {
       imageUrlLandscape: "/images/horse-9531049_1280.jpg",
       title: "Carte 4",
       description: "Description 4",
-      mediaWidth: "37vw",
+      mediaWidth: "34vw",
+      mediaheight: "45vh",
     },
     {
       imageUrlPortrait: "/images/nature-9558835_1280.jpg",

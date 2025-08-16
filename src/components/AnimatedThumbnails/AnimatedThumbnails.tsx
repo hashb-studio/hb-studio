@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./AnimatedThumbnails.module.scss";
 import classNames from "classnames/bind";
 import { Card } from "../card/Card";
+import { AnimatedLogo } from "../AnimatedLogo/AnimatedLogo";
 
 const cx = classNames.bind(styles);
 
@@ -27,6 +28,7 @@ export const AnimatedThumbnails: React.FC<AnimatedThumbnailsProps> = ({
 
   return (
     <section className={cx("animated-thumbnails")}>
+      <AnimatedLogo />
       <div
         className={cx("animated-thumbnails__grid", {
           "odd-number": isOdd,
