@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import React from "react";
 import { AnimatedThumbnails } from "../AnimatedThumbnails/AnimatedThumbnails";
+import Hero from "../Hero/Hero";
 
 type CardType = {
   imageUrlPortrait?: string;
@@ -76,6 +77,7 @@ const Homepage = () => {
   return (
     <>
       <h1>{t("title")}</h1>
+      <Hero />
       <div>
         <AnimatedThumbnails cards={payload.cards} header={payload.header} />
       </div>

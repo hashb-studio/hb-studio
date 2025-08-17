@@ -1,5 +1,8 @@
 {
   "HomePage": {
     "title": "Hello World!"
+  },
+  "Hero": {
+    "title": "Hb studio"
   }
 }
