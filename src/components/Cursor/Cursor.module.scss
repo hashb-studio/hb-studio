@@ -1,0 +1,14 @@
+.cursor {
+  position: fixed;
+  align-items: center;
+  gap: 16px;
+  padding: 2rem;
+  border-radius: 50px;
+  pointer-events: none;
+  width: fit-content;
+  transform: translate(-50%, -50%);
+
+  @media not all and (pointer: coarse) {
+    display: flex;
+  }
+}

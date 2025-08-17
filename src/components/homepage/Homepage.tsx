@@ -1,10 +1,9 @@
 "use client";
 
 import React from "react";
-
-import Header from "../Header/Header";
-import Hero from "../Hero/Hero";
+import Header from "../header/Header";
 import { AnimatedThumbnails } from "../AnimatedThumbnails/AnimatedThumbnails";
+import Hero from "../Hero/Hero";
 
 type CardType = {
   imageUrlPortrait?: string;
@@ -23,14 +22,10 @@ type CardType = {
 };
 
 export const payload = {
-  header: {
-    title: "Galerie Animée",
-    description: "Découvrez nos images avec effets et tailles variées.",
-  },
   cards: [
     {
-      imageUrlPortrait: "https://fillthis.io/i/400x400",
-      imageUrlLandscape: "https://fillthis.io/i/400x400",
+      imageUrlPortrait: "/images/kid-6582547_1280.jpg",
+      imageUrlLandscape: "/images/kid-6582547_1280.jpg",
       title: "Carte 1",
       description: "Description 1",
       hoverText: "See more",
@@ -39,8 +34,8 @@ export const payload = {
     },
     {
       marginTop: "20vw",
-      imageUrlPortrait: "https://fillthis.io/i/400x400",
-      imageUrlLandscape: "https://fillthis.io/i/400x400",
+      imageUrlPortrait: "/images/vancouver-7434702_640.jpg",
+      imageUrlLandscape: "/images/vancouver-7434702_640.jpg",
       title: "Carte 2",
       description: "Description 2",
       mediaheight: "35vh",
@@ -49,23 +44,24 @@ export const payload = {
     {
       mediaWidth: "35vw",
       mediaheight: "35vh",
-      imageUrlPortrait: "https://fillthis.io/i/400x400",
-      imageUrlLandscape: "https://fillthis.io/i/400x400",
+      imageUrlPortrait: "/images/vietnam-9757895_1280.png",
+      imageUrlLandscape: "/images/vietnam-9757895_1280.png",
       title: "Carte 3",
       description: "Description 3",
       marginRight: "10vw",
     },
     {
       marginTop: "10vw",
-      imageUrlPortrait: "https://fillthis.io/i/400x400",
-      imageUrlLandscape: "https://fillthis.io/i/400x400",
+      imageUrlPortrait: "/images/horse-9531049_1280.jpg",
+      imageUrlLandscape: "/images/horse-9531049_1280.jpg",
       title: "Carte 4",
       description: "Description 4",
-      mediaWidth: "37vw",
+      mediaWidth: "34vw",
+      mediaheight: "45vh",
     },
     {
-      imageUrlPortrait: "https://fillthis.io/i/400x400",
-      imageUrlLandscape: "https://fillthis.io/i/400x400",
+      imageUrlPortrait: "/images/nature-9558835_1280.jpg",
+      imageUrlLandscape: "/images/nature-9558835_1280.jpg",
       title: "Carte 5",
       description: "Description 5",
       mediaWidth: "50vw",
@@ -79,7 +75,7 @@ const Homepage = () => {
     <Header />
     <Hero />
       <div>
-        <AnimatedThumbnails cards={payload.cards} header={payload.header} />
+        <AnimatedThumbnails cards={payload.cards} />
       </div>
     </>
   );

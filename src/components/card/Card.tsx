@@ -1,9 +1,10 @@
-/* eslint-disable @next/next/no-img-element */
-import React from "react";
+import React, { useEffect, useRef, useState } from "react"
 import styles from "./Card.module.scss";
 import classNames from "classnames/bind";
 import { Orientation, useOrientation } from "@/hooks/useOrientation";
 import { useAboveTablet } from "@/hooks/useMediaQuery";
+import Cursor from "../Cursor/Cursor";
+import { useScroll, useTransform, motion } from "framer-motion";
 
 const cx = classNames.bind(styles);
 
@@ -45,6 +46,7 @@ export const Card = ({
   const isSquareFullWidth = !isLaptop && isPortrait;
 
   const cardStyle = {
+    cursor: "none",
     width:
       !isSquareFullWidth && mediaWidth
         ? mediaWidth
@@ -65,15 +67,52 @@ export const Card = ({
     width: cardStyle["--card-width"],
   } as React.CSSProperties;
 
+  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
+  const [cursorVisible, setCursorVisible] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const handleEnter = () => setCursorVisible(true);
+    const handleLeave = () => setCursorVisible(false);
+
+    const el = containerRef.current;
+    el.addEventListener("mouseenter", handleEnter);
+    el.addEventListener("mouseleave", handleLeave);
+
+    return () => {
+      el.removeEventListener("mouseenter", handleEnter);
+      el.removeEventListener("mouseleave", handleLeave);
+    };
+  }, []);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
+
   return (
     <div>
-      <figure
+      <motion.figure
         className={cx("card__media", {
           "card__media--hasBorderRadius": hasRadiusBorder,
         })}
         style={cardStyle}
+        ref={containerRef}
+        onMouseMove={(e) => {
+          const rect = containerRef.current!.getBoundingClientRect();
+          setCursorPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+        }}
+        onMouseEnter={() => setCursorVisible(true)}
+        onMouseLeave={() => setCursorVisible(false)}
+        initial={{ scale: 1 }}
+        whileHover={{ scale: 0.97 }}
+        transition={{ type: "spring", stiffness: 150, damping: 20 }}
       >
-        <img
+        <motion.img
           src={imageUrl}
           alt={title || "card image"}
           style={{
@@ -81,9 +120,21 @@ export const Card = ({
             height: "100%",
             objectFit: "cover",
             borderRadius: hasRadiusBorder ? "1rem" : "0",
+            y,
           }}
+          initial={{ scale: 1 }}
+          whileHover={{ scale: 1.15 }}
+          transition={{ type: "spring", stiffness: 120, damping: 20 }}
         />
-      </figure>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: cursorVisible ? 1 : 0 }}
+          transition={{ duration: 0.2 }}
+          style={{ position: "absolute", pointerEvents: "none" }}
+        >
+          <Cursor position={cursorPos} />
+        </motion.div>
+      </motion.figure>
 
       <div
         className={cx("content", {
