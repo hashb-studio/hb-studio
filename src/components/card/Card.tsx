@@ -8,7 +8,7 @@ import { useScroll, useTransform, motion } from "framer-motion";
 
 const cx = classNames.bind(styles);
 
-export const Card = ({
+const Card = ({
   imageUrlPortrait,
   imageUrlLandscape,
   title,
@@ -148,3 +148,5 @@ export const Card = ({
     </div>
   );
 };
+
+export default Card;
