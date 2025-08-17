@@ -24,25 +24,25 @@ const Navbar = () => {
       {!isMobile ? (
         <>
           <nav className={cx("navbar")}>
-            <a href="#" className={cx("nav-link")}>
+            <a href="#" className={cx("navbar__link")}>
               Accueil
             </a>
-            <a href="#" className={cx("nav-link")}>
+            <a href="#" className={cx("navbar__link")}>
               À propos
             </a>
-            <a href="#" className={cx("nav-link")}>
+            <a href="#" className={cx("navbar__link")}>
               Services
             </a>
-            <a href="#" className={cx("nav-link")}>
+            <a href="#" className={cx("navbar__link")}>
               Contact
             </a>
           </nav>
         </>
       ) : (
         <>
-          <div className={cx("mobile-nav")}>
+          <div className={cx("navMobile")}>
             <button
-              className={cx("burger-button", { active: isOpen })}
+              className={cx("navMobile__burger-button", { active: isOpen })}
               onClick={toggleMenu}
               aria-label="Menu"
             >
@@ -52,45 +52,45 @@ const Navbar = () => {
             </button>
 
             <div
-              className={cx("menu-overlay", { open: isOpen })}
+              className={cx("navMobile__menu-overlay", { open: isOpen })}
               onClick={closeMenu}
             />
 
-            <nav className={cx("mobile-menu", { open: isOpen })}>
-              <div className={cx("menu-header")}>
+            <nav className={cx("navMobile__mobile-menu", { open: isOpen })}>
+              <div className={cx("navMobile__menu-header")}>
                 <button
-                  className={cx("close-button")}
+                  className={cx("navMobile__close-button")}
                   onClick={closeMenu}
                   aria-label="Fermer le menu"
                 >
                   ×
                 </button>
               </div>
-              <div className={cx("menu-links")}>
+              <div className={cx("navMobile__menu-links")}>
                 <a
                   href="#"
-                  className={cx("mobile-nav-link")}
+                  className={cx("navMobile__mobile-nav-link")}
                   onClick={closeMenu}
                 >
                   Accueil
                 </a>
                 <a
                   href="#"
-                  className={cx("mobile-nav-link")}
+                  className={cx("navMobile__mobile-nav-link")}
                   onClick={closeMenu}
                 >
                   À propos
                 </a>
                 <a
                   href="#"
-                  className={cx("mobile-nav-link")}
+                  className={cx("navMobile__mobile-nav-link")}
                   onClick={closeMenu}
                 >
                   Services
                 </a>
                 <a
                   href="#"
-                  className={cx("mobile-nav-link")}
+                  className={cx("navMobile__mobile-nav-link")}
                   onClick={closeMenu}
                 >
                   Contact
