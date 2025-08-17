@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./AnimatedThumbnails.module.scss";
 import classNames from "classnames/bind";
 import { AnimatedLogo } from "../AnimatedLogo/AnimatedLogo";
-import Card from "../Card/Card";
+import Cards from "../Cards/Cards";
 
 const cx = classNames.bind(styles);
 
@@ -35,7 +35,7 @@ export const AnimatedThumbnails: React.FC<AnimatedThumbnailsProps> = ({
         })}
       >
         {cards.map((card, index) => (
-          <Card key={index} {...card} />
+          <Cards key={index} {...card} />
         ))}
       </div>
     </section>

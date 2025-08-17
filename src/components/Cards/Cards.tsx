@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react"
-import styles from "./Card.module.scss";
+import styles from "./Cards.module.scss";
 import classNames from "classnames/bind";
 import { Orientation, useOrientation } from "@/hooks/useOrientation";
 import { useAboveTablet } from "@/hooks/useMediaQuery";
@@ -8,7 +8,7 @@ import { useScroll, useTransform, motion } from "framer-motion";
 
 const cx = classNames.bind(styles);
 
-const Card = ({
+const Cards = ({
   imageUrlPortrait,
   imageUrlLandscape,
   title,
@@ -149,4 +149,4 @@ const Card = ({
   );
 };
 
-export default Card;
+export default Cards;

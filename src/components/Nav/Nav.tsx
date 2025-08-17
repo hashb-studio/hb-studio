@@ -2,12 +2,12 @@
 
 import classNames from "classnames/bind";
 import React, { useState } from "react";
-import styles from "./Navbar.module.scss";
+import styles from "./Nav.module.scss";
 import { useBelowLaptop } from "@/hooks/useMediaQuery";
 
 const cx = classNames.bind(styles);
 
-export const Navbar = () => {
+export const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const isMobile = useBelowLaptop();
 
