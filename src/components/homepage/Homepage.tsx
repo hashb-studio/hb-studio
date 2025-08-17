@@ -1,9 +1,9 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import React from "react";
-import { AnimatedThumbnails } from "../AnimatedThumbnails/AnimatedThumbnails";
-import Hero from "../Hero/Hero";
+import { AnimatedThumbnails } from "../animatedThumbnails/AnimatedThumbnails";
+import Hero from "../hero/Hero";
+import Header from "../header/Header";
 
 type CardType = {
   imageUrlPortrait?: string;
@@ -73,10 +73,9 @@ export const payload = {
 };
 
 const Homepage = () => {
-  const t = useTranslations("HomePage");
   return (
     <>
-      <h1>{t("title")}</h1>
+      <Header />
       <Hero />
       <div>
         <AnimatedThumbnails cards={payload.cards} header={payload.header} />
