@@ -7,7 +7,7 @@ import { Navbar } from "../Navbar/Navbar";
 
 const cx = classNames.bind(styles);
 
-export const Header = () => {
+export const Head = () => {
   return (
     <header className={cx("header")}>
       <h1>Hb studio</h1>
