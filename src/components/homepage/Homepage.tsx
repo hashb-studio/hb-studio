@@ -2,7 +2,7 @@
 
 import React from "react";
 import { AnimatedThumbnails } from "../AnimatedThumbnails/AnimatedThumbnails";
-import { Hero } from "../Hero/Hero";
+// import { Hero } from "../Hero/Hero";
 import { Header } from "../Header/Header";
 
 type CardType = {
@@ -73,7 +73,7 @@ const Homepage = () => {
   return (
     <>
     <Header />
-    <Hero />
+    {/* <Hero /> */}
       <div>
         <AnimatedThumbnails cards={payload.cards} />
       </div>
