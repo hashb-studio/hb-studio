@@ -3,7 +3,7 @@
 import React from "react";
 import { Hero } from "../Hero/Hero";
 import { Header } from "../Header/Header";
-import { AnimatedThumbnails } from "../AnimatedThumbnails/AnimatedThumbnails";
+import { AnimatedThumbnails } from "@/components/AnimatedThumbnails/AnimatedThumbnails";
 
 type CardType = {
   imageUrlPortrait?: string;
