@@ -1,3 +1,5 @@
+"use client"
+
 import classNames from "classnames/bind";
 import React from "react";
 import styles from "./Header.module.scss";

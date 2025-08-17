@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+
 import Header from "../Header/Header";
 import Hero from "../Hero/Hero";
 import { AnimatedThumbnails } from "../AnimatedThumbnails/AnimatedThumbnails";
@@ -75,8 +76,8 @@ export const payload = {
 const Homepage = () => {
   return (
     <>
-      <Header />
-      <Hero />
+    <Header />
+    <Hero />
       <div>
         <AnimatedThumbnails cards={payload.cards} header={payload.header} />
       </div>
