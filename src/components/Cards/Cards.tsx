@@ -73,22 +73,6 @@ const Cards = ({
   const [cursorVisible, setCursorVisible] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (!containerRef.current) return;
-
-    const handleEnter = () => setCursorVisible(true);
-    const handleLeave = () => setCursorVisible(false);
-
-    const el = containerRef.current;
-    el.addEventListener("mouseenter", handleEnter);
-    el.addEventListener("mouseleave", handleLeave);
-
-    return () => {
-      el.removeEventListener("mouseenter", handleEnter);
-      el.removeEventListener("mouseleave", handleLeave);
-    };
-  }, []);
-
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"],
@@ -111,6 +95,8 @@ const Cards = ({
     }
   }, [isInView]);
 
+  const [zoomActive, setZoomActive] = useState(false);
+
   return (
     <div>
       <motion.figure
@@ -121,12 +107,25 @@ const Cards = ({
         ref={containerRef}
         onMouseMove={(e) => {
           const rect = containerRef.current!.getBoundingClientRect();
-          setCursorPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+          const padding = 5;
+          const inside =
+            e.clientX > rect.left - padding &&
+            e.clientX < rect.right + padding &&
+            e.clientY > rect.top - padding &&
+            e.clientY < rect.bottom + padding;
+
+          setCursorVisible(inside);
+          setCursorPos({ x: e.clientX, y: e.clientY });
+
+          const centerX = rect.left + rect.width / 2;
+          const centerY = rect.top + rect.height / 2;
+          const offsetX = Math.abs(e.clientX - centerX);
+          const offsetY = Math.abs(e.clientY - centerY);
+          const maxOffset = Math.min(rect.width, rect.height) / 2;
+          setZoomActive(offsetX < maxOffset && offsetY < maxOffset);
         }}
-        onMouseEnter={() => setCursorVisible(true)}
         onMouseLeave={() => setCursorVisible(false)}
-        initial={{ scale: 1 }}
-        whileHover={{ scale: 0.97 }}
+        animate={{ scale: zoomActive ? 1.15 : 1 }}
         transition={{ type: "spring", stiffness: 150, damping: 20 }}
       >
         {!videoMedia ? (
@@ -140,8 +139,7 @@ const Cards = ({
               borderRadius: hasRadiusBorder ? "1rem" : "0",
               y,
             }}
-            initial={{ scale: 1 }}
-            whileHover={{ scale: 1.15 }}
+            animate={{ scale: cursorVisible ? 1.15 : 1 }}
             transition={{ type: "spring", stiffness: 120, damping: 20 }}
           />
         ) : (
@@ -154,20 +152,31 @@ const Cards = ({
               objectFit: "cover",
               borderRadius: hasRadiusBorder ? "1rem" : "0",
             }}
+            animate={{ scale: cursorVisible ? 1.15 : 1 }}
+            transition={{ type: "spring", stiffness: 120, damping: 20 }}
             loop
             muted
             playsInline
           />
         )}
+      </motion.figure>
+
+      {cursorVisible && (
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: cursorVisible ? 1 : 0 }}
-          transition={{ duration: 0.2 }}
-          style={{ position: "absolute", pointerEvents: "none" }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            pointerEvents: "none",
+            zIndex: 9999,
+          }}
         >
           <Cursor position={cursorPos} />
         </motion.div>
-      </motion.figure>
+      )}
 
       <div
         className={cx("content", {
