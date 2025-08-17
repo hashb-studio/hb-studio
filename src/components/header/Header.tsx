@@ -1,7 +1,9 @@
+"use client"
+
 import classNames from "classnames/bind";
 import React from "react";
 import styles from "./Header.module.scss";
-import Navbar from "../navbar/Navbar";
+import Navbar from "../Navbar/Navbar";
 
 const cx = classNames.bind(styles);
 

@@ -72,8 +72,8 @@ export const payload = {
 const Homepage = () => {
   return (
     <>
-      <Header />
-      <Hero />
+    <Header />
+    <Hero />
       <div>
         <AnimatedThumbnails cards={payload.cards} />
       </div>

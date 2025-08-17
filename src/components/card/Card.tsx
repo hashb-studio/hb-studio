@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react"
 import styles from "./Card.module.scss";
 import classNames from "classnames/bind";
 import { Orientation, useOrientation } from "@/hooks/useOrientation";
