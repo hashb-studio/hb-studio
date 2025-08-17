@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./Cards.module.scss";
 import classNames from "classnames/bind";
 import { Orientation, useOrientation } from "@/hooks/useOrientation";
@@ -11,6 +11,7 @@ const cx = classNames.bind(styles);
 const Cards = ({
   imageUrlPortrait,
   imageUrlLandscape,
+  videoMedia,
   title,
   description,
   hasRadiusBorder = false,
@@ -25,6 +26,7 @@ const Cards = ({
 }: {
   imageUrlPortrait?: string;
   imageUrlLandscape?: string;
+  videoMedia?: string;
   title?: string;
   description?: string;
   hasRadiusBorder?: boolean;
@@ -94,6 +96,12 @@ const Cards = ({
 
   const y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
 
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const playVideo = () => {
+    videoRef.current?.play();
+  };
+
   return (
     <div>
       <motion.figure
@@ -112,20 +120,39 @@ const Cards = ({
         whileHover={{ scale: 0.97 }}
         transition={{ type: "spring", stiffness: 150, damping: 20 }}
       >
-        <motion.img
-          src={imageUrl}
-          alt={title || "card image"}
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            borderRadius: hasRadiusBorder ? "1rem" : "0",
-            y,
-          }}
-          initial={{ scale: 1 }}
-          whileHover={{ scale: 1.15 }}
-          transition={{ type: "spring", stiffness: 120, damping: 20 }}
-        />
+        {!videoMedia ? (
+          <motion.img
+            src={imageUrl}
+            alt={title || "card image"}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              borderRadius: hasRadiusBorder ? "1rem" : "0",
+              y,
+            }}
+            initial={{ scale: 1 }}
+            whileHover={{ scale: 1.15 }}
+            transition={{ type: "spring", stiffness: 120, damping: 20 }}
+          />
+        ) : (
+          <motion.video
+            ref={videoRef}
+            src={videoMedia}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              borderRadius: hasRadiusBorder ? "1rem" : "0",
+              y,
+            }}
+            loop
+            autoPlay
+            initial={{ scale: 1 }}
+            whileHover={{ scale: 1.15 }}
+            transition={{ type: "spring", stiffness: 120, damping: 20 }}
+          />
+        )}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: cursorVisible ? 1 : 0 }}
