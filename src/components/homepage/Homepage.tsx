@@ -69,7 +69,7 @@ export const payload = {
   ] as CardType[],
 };
 
-const Homepage = () => {
+export const Homepage = () => {
   return (
     <>
     <Header />
@@ -81,4 +81,3 @@ const Homepage = () => {
   );
 };
 
-export default Homepage;
