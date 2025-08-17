@@ -3,7 +3,7 @@ import styles from "./Card.module.scss";
 import classNames from "classnames/bind";
 import { Orientation, useOrientation } from "@/hooks/useOrientation";
 import { useAboveTablet } from "@/hooks/useMediaQuery";
-import Cursor from "../Cursor/Cursor";
+import { Cursor } from "../Cursor/Cursor";
 import { useScroll, useTransform, motion } from "framer-motion";
 
 const cx = classNames.bind(styles);

@@ -2,8 +2,8 @@
 
 import React from "react";
 import { AnimatedThumbnails } from "../AnimatedThumbnails/AnimatedThumbnails";
-import Hero from "../Hero/Hero";
-import Header from "../Header/Header";
+import { Hero } from "../Hero/Hero";
+import { Header } from "../Header/Header";
 
 type CardType = {
   imageUrlPortrait?: string;
@@ -69,7 +69,7 @@ export const payload = {
   ] as CardType[],
 };
 
-export const Homepage = () => {
+const Homepage = () => {
   return (
     <>
     <Header />
@@ -81,3 +81,4 @@ export const Homepage = () => {
   );
 };
 
+export default Homepage;

@@ -7,7 +7,7 @@ interface CursorProps {
 
 const cx = classNames.bind(styles);
 
-const Cursor = ({ position }: CursorProps) => {
+export const Cursor = ({ position }: CursorProps) => {
   return (
     <div className={cx("cursor")} style={{ top: position.y, left: position.x }}>
       <svg
@@ -39,4 +39,3 @@ const Cursor = ({ position }: CursorProps) => {
   );
 };
 
-export default Cursor;

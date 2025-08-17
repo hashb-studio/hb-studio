@@ -8,7 +8,7 @@ import { motion } from "motion/react";
 
 const cx = classNames.bind(styles);
 
-const Hero = () => {
+export const Hero = () => {
   const t = useTranslations("Hero");
 
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -85,4 +85,3 @@ const Hero = () => {
   );
 };
 
-export default Hero;

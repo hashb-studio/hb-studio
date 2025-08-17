@@ -7,7 +7,7 @@ import { useBelowLaptop } from "@/hooks/useMediaQuery";
 
 const cx = classNames.bind(styles);
 
-const Navbar = () => {
+export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const isMobile = useBelowLaptop();
 
@@ -104,4 +104,3 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
