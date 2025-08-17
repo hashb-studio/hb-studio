@@ -39,7 +39,7 @@ export const payload = {
       imageUrlLandscape: "/images/vancouver-7434702_640.jpg",
       title: "Innovation",
       description:
-        "Des projets pensés pour s’intégrer dans des projets modernes et dynamiques",
+        "Des templates pensés pour s’intégrer dans des projets modernes et agiles",
       mediaheight: "35vh",
       mediaWidth: "35vw",
     },
@@ -58,7 +58,7 @@ export const payload = {
       videoMedia: "/videos/barista_video.mp4",
       title: "Savoir-faire en action",
       description:
-        "Découvrez nos processus en mouvement, entre précision et créativité",
+        "Découvrez nos composants animés, entre précision et créativité",
       mediaWidth: "35vw",
       mediaheight: "35vh",
     },
