@@ -4,7 +4,7 @@ import classNames from "classnames/bind";
 import { Orientation, useOrientation } from "@/hooks/useOrientation";
 import { useAboveTablet } from "@/hooks/useMediaQuery";
 import { Cursor } from "../Cursor/Cursor";
-import { useScroll, useTransform, motion } from "framer-motion";
+import { useScroll, useTransform, motion, useInView } from "framer-motion";
 
 const cx = classNames.bind(styles);
 
@@ -98,9 +98,18 @@ const Cards = ({
 
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const playVideo = () => {
-    videoRef.current?.play();
-  };
+  const isInView = useInView(containerRef, { amount: 0.8 });
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (isInView) {
+      video.play();
+    } else {
+      video.pause();
+    }
+  }, [isInView]);
 
   return (
     <div>
@@ -144,13 +153,10 @@ const Cards = ({
               height: "100%",
               objectFit: "cover",
               borderRadius: hasRadiusBorder ? "1rem" : "0",
-              y,
             }}
             loop
-            autoPlay
-            initial={{ scale: 1 }}
-            whileHover={{ scale: 1.15 }}
-            transition={{ type: "spring", stiffness: 120, damping: 20 }}
+            muted
+            playsInline
           />
         )}
         <motion.div
