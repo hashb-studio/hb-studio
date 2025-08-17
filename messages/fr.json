@@ -1,5 +1,10 @@
 {
   "HomePage": {
     "title": "Bonjour le monde !"
+  },
+
+  "Hero": {
+    "title": "Hb studio",
+    "subtitle": "Un studio de création d'applications web et mobile"
   }
 }
