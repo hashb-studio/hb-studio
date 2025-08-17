@@ -2,8 +2,8 @@
 
 import React from "react";
 import { AnimatedThumbnails } from "../animatedThumbnails/AnimatedThumbnails";
-import Hero from "../hero/Hero";
 import Header from "../header/Header";
+import Hero from "../hero/Hero";
 
 type CardType = {
   imageUrlPortrait?: string;
@@ -75,8 +75,8 @@ export const payload = {
 const Homepage = () => {
   return (
     <>
-      <Header />
-      <Hero />
+    <Header />
+    <Hero />
       <div>
         <AnimatedThumbnails cards={payload.cards} header={payload.header} />
       </div>
