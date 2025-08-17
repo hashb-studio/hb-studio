@@ -15,7 +15,6 @@ export const AnimatedLogo = () => {
             d="M110,110 m-100,0 a100,100 0 1,1 200,0 a100,100 0 1,1 -200,0"
           />
         </defs>
-
         <text fontSize="14" fill="#333">
           <textPath href="#circlePath" startOffset="50%" textAnchor="middle">
             HB STUDIO • HB STUDIO • HB STUDIO •
