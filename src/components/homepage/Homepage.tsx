@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import { AnimatedThumbnails } from "../animatedThumbnails/AnimatedThumbnails";
-import Hero from "../hero/Hero";
-import Header from "../header/Header";
+import Header from "../Header/Header";
+import Hero from "../Hero/Hero";
+import { AnimatedThumbnails } from "../AnimatedThumbnails/AnimatedThumbnails";
 
 type CardType = {
   imageUrlPortrait?: string;
