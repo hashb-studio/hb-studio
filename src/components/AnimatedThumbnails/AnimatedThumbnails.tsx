@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./AnimatedThumbnails.module.scss";
 import classNames from "classnames/bind";
 import { Card } from "../card/Card";
+import { AnimatedLogo } from "../AnimatedLogo/AnimatedLogo";
 
 const cx = classNames.bind(styles);
 
@@ -18,26 +19,16 @@ type AnimatedThumbnailsProps = {
     marginTop?: string;
     marginBottom?: string;
   }[];
-  header?: {
-    title?: string;
-    description?: string;
-  };
 };
 
 export const AnimatedThumbnails: React.FC<AnimatedThumbnailsProps> = ({
   cards,
-  header,
 }) => {
   const isOdd = cards.length % 2 !== 0;
 
   return (
     <section className={cx("animated-thumbnails")}>
-      {header && (header.title || header.description) && (
-        <div className={cx("animated-thumbnails__header")}>
-          {header.title && <h2>{header.title}</h2>}
-          {header.description && <p>{header.description}</p>}
-        </div>
-      )}
+      <AnimatedLogo />
       <div
         className={cx("animated-thumbnails__grid", {
           "odd-number": isOdd,
