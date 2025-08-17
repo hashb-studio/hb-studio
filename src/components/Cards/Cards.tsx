@@ -117,15 +117,26 @@ const Cards = ({
           setCursorVisible(inside);
           setCursorPos({ x: e.clientX, y: e.clientY });
 
-          const centerX = rect.left + rect.width / 2;
-          const centerY = rect.top + rect.height / 2;
-          const offsetX = Math.abs(e.clientX - centerX);
-          const offsetY = Math.abs(e.clientY - centerY);
-          const maxOffset = Math.min(rect.width, rect.height) / 2;
-          setZoomActive(offsetX < maxOffset && offsetY < maxOffset);
+          if (inside) {
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            const offsetX = Math.abs(e.clientX - centerX);
+            const offsetY = Math.abs(e.clientY - centerY);
+
+            const triggerPadding = 30;
+            const insideZoom =
+              offsetX < rect.width / 2 - triggerPadding &&
+              offsetY < rect.height / 2 - triggerPadding;
+            setZoomActive(insideZoom);
+          } else {
+            setZoomActive(false);
+          }
         }}
-        onMouseLeave={() => setCursorVisible(false)}
-        animate={{ scale: zoomActive ? 1.15 : 1 }}
+        onMouseLeave={() => {
+          setCursorVisible(false);
+          setZoomActive(false);
+        }}
+        animate={{ scale: zoomActive ? 0.9 : 1 }}
         transition={{ type: "spring", stiffness: 150, damping: 20 }}
       >
         {!videoMedia ? (
@@ -139,7 +150,7 @@ const Cards = ({
               borderRadius: hasRadiusBorder ? "1rem" : "0",
               y,
             }}
-            animate={{ scale: cursorVisible ? 1.15 : 1 }}
+            animate={{ scale: zoomActive ? 1.3 : 1 }}
             transition={{ type: "spring", stiffness: 120, damping: 20 }}
           />
         ) : (
@@ -152,7 +163,7 @@ const Cards = ({
               objectFit: "cover",
               borderRadius: hasRadiusBorder ? "1rem" : "0",
             }}
-            animate={{ scale: cursorVisible ? 1.15 : 1 }}
+            animate={{ scale: zoomActive ? 1.3 : 1 }}
             transition={{ type: "spring", stiffness: 120, damping: 20 }}
             loop
             muted
