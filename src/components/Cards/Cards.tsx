@@ -65,10 +65,6 @@ const Cards = ({
     "--card-aspect": isSquareFullWidth ? "1 / 1" : "initial",
   } as React.CSSProperties & { [key: string]: string };
 
-  const contentStyle = {
-    width: cardStyle["--card-width"],
-  } as React.CSSProperties;
-
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [cursorVisible, setCursorVisible] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -106,6 +102,7 @@ const Cards = ({
         style={cardStyle}
         ref={containerRef}
         onMouseMove={(e) => {
+          if (!isLaptop) return;
           const rect = containerRef.current!.getBoundingClientRect();
           const padding = 5;
           const inside =
@@ -113,7 +110,6 @@ const Cards = ({
             e.clientX < rect.right + padding &&
             e.clientY > rect.top - padding &&
             e.clientY < rect.bottom + padding;
-
           setCursorVisible(inside);
           setCursorPos({ x: e.clientX, y: e.clientY });
 
@@ -133,6 +129,7 @@ const Cards = ({
           }
         }}
         onMouseLeave={() => {
+          if (!isLaptop) return;
           setCursorVisible(false);
           setZoomActive(false);
         }}
@@ -193,7 +190,6 @@ const Cards = ({
         className={cx("content", {
           "content--inline": displayInLine,
         })}
-        style={contentStyle}
       >
         {title && <h5>{title}</h5>}
         {description && <p>{description}</p>}
