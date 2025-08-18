@@ -38,4 +38,3 @@ export const Cursor = ({ position }: CursorProps) => {
     </div>
   );
 };
-
