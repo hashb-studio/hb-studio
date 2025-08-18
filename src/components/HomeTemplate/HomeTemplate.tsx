@@ -50,15 +50,14 @@ export const payload = {
       imageUrlLandscape: "/images/vietnam-9757895_1280.png",
       title: "Ouverture internationale",
       description:
-        "Nous développons des projets capables de s’adapter aux besoins globaux et multiculturels.",
+        "Des projets capables de s’adapter aux besoins globaux et multiculturels.",
       marginRight: "10vw",
     },
     {
       marginTop: "10vw",
       videoMedia: "/videos/barista_video.mp4",
       title: "Savoir-faire en action",
-      description:
-        "Découvrez nos composants animés, entre précision et créativité",
+      description: "Des composants animés, entre précision et créativité",
       mediaWidth: "35vw",
       mediaheight: "35vh",
     },
@@ -66,8 +65,7 @@ export const payload = {
       imageUrlPortrait: "/images/nature-9558835_1280.jpg",
       imageUrlLandscape: "/images/nature-9558835_1280.jpg",
       title: "Durabilité et harmonie",
-      description:
-        "Nous plaçons l’écologie et l’équilibre au cœur de nos conceptions.",
+      description: "écologie et équilibre au cœur de nos conceptions.",
       mediaWidth: "50vw",
     },
   ] as CardType[],

@@ -1,12 +1,19 @@
 .logoWrapper {
-  width: 220px;
-  height: 220px;
+  width: 150px;
+  height: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
   top: 65px;
-  right: 180px;
+  right: 200px;
+  z-index: 1000;
+
+  @media (min-width: 769px) {
+    right: 180px;
+    width: 220px;
+    height: 220px;
+  }
 }
 
 .logo {
