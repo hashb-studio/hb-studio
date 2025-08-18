@@ -110,7 +110,6 @@ const Cards = ({
             e.clientX < rect.right + padding &&
             e.clientY > rect.top - padding &&
             e.clientY < rect.bottom + padding;
-
           setCursorVisible(inside);
           setCursorPos({ x: e.clientX, y: e.clientY });
 
