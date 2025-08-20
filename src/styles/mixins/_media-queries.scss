@@ -1,0 +1,82 @@
+@use "../variables/breakpoints" as *;
+@use "sass:string";
+
+@mixin tablet($landscape: false) {
+  @if ($landscape) {
+    @media only screen and (orientation: landscape) and (min-width: $md) {
+      @content;
+    }
+  } @else {
+    @media only screen and (min-width: $md) {
+      @content;
+    }
+  }
+}
+
+@mixin laptop($landscape: false) {
+  @if ($landscape) {
+    @media only screen and (orientation: landscape) and (min-width: $lg) {
+      @content;
+    }
+  } @else {
+    @media only screen and (min-width: $lg) {
+      @content;
+    }
+  }
+}
+
+@mixin desktop($landscape: false) {
+  @if ($landscape) {
+    @media only screen and (orientation: landscape) and (min-width: $xl) {
+      @content;
+    }
+  } @else {
+    @media only screen and (min-width: $xl) {
+      @content;
+    }
+  }
+}
+
+@mixin non-wide-laptop {
+  @media (min-width: $lg) and (min-height: ($xl * 0.5)) {
+    @content;
+  }
+}
+
+@mixin non-wide-desktop {
+  @media (min-width: $xl) and (min-height: ($xl * 0.5)) {
+    @content;
+  }
+}
+
+@mixin wide-laptop {
+  @media (min-width: $lg) and (max-height: ($xl * 0.5)) {
+    @content;
+  }
+}
+
+@mixin ipad-pro {
+  @media screen and (min-width: $lg) and (max-width: 1366px) and (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin responsive($min: null, $max: null, $landscape: false) {
+  $query: "only screen";
+
+  @if $landscape {
+    $query: "#{$query} and (orientation: landscape)";
+  }
+
+  @if $min != null {
+    $query: "#{$query} and (min-width: #{$min})";
+  }
+
+  @if $max != null {
+    $query: "#{$query} and (max-width: #{$max})";
+  }
+
+  @media #{string.unquote($query)} {
+    @content;
+  }
+}
