@@ -4,6 +4,7 @@ import classNames from "classnames/bind";
 import React, { useState } from "react";
 import styles from "./Nav.module.scss";
 import { useBelowLaptop } from "@/hooks/useMediaQuery";
+import { LocaleSwitcher } from "../LocaleSwitcher/LocaleSwitcher";
 
 const cx = classNames.bind(styles);
 
@@ -36,6 +37,7 @@ export const Nav = () => {
             <a href="#" className={cx("navbar__link")}>
               Contact
             </a>
+            <LocaleSwitcher />
           </nav>
         </>
       ) : (

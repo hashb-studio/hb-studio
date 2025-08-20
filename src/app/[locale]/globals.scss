@@ -9,10 +9,10 @@ a {
   text-decoration: none;
 }
 
-h1 {
-  color: red;
-}
-
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.customFont {
+  font-family: var(--font-custom), "Helvetica", Arial, sans-serif;
 }
