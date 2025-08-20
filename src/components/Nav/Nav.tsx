@@ -5,12 +5,15 @@ import React, { useState } from "react";
 import styles from "./Nav.module.scss";
 import { useBelowLaptop } from "@/hooks/useMediaQuery";
 import { LocaleSwitcher } from "../LocaleSwitcher/LocaleSwitcher";
+import { ThemeToggle } from "../ThemeToggle/ThemeToggle";
+import { useTheme } from "next-themes";
 
 const cx = classNames.bind(styles);
 
 export const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const isMobile = useBelowLaptop();
+  const { theme } = useTheme();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -38,6 +41,7 @@ export const Nav = () => {
               Contact
             </a>
             <LocaleSwitcher />
+            <ThemeToggle />
           </nav>
         </>
       ) : (
@@ -48,9 +52,9 @@ export const Nav = () => {
               onClick={toggleMenu}
               aria-label="Menu"
             >
-              <span />
-              <span />
-              <span />
+              <span className={cx("line", { active: theme === "dark" })} />
+              <span className={cx("line", { active: theme === "dark" })} />
+              <span className={cx("line", { active: theme === "dark" })} />
             </button>
 
             <div

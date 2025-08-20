@@ -2,9 +2,10 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 
-import "./globals.scss";
+import "../../styles/globals.scss";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { customFont } from "../fonts";
+import { ThemeProvider } from "next-themes";
 
 export default async function LocaleLayout({
   children,
@@ -24,11 +25,22 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={customFont.variable}>
+    <html
+      lang={locale}
+      className={customFont.variable}
+      suppressHydrationWarning
+    >
       <body>
-        <NextIntlClientProvider messages={messages}>
-          {children}
-        </NextIntlClientProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <NextIntlClientProvider messages={messages}>
+            {children}
+          </NextIntlClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
