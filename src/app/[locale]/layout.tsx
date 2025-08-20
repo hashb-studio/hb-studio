@@ -4,13 +4,7 @@ import { routing } from "@/i18n/routing";
 
 import "./globals.scss";
 import { getMessages, setRequestLocale } from "next-intl/server";
-import localFont from "next/font/local";
-
-export const customFont = localFont({
-  src: [{ path: "../fonts/Yourmate.ttf", weight: "400", style: "normal" }],
-  variable: "--font-custom",
-  display: "swap",
-});
+import { customFont } from "../fonts";
 
 export default async function LocaleLayout({
   children,
