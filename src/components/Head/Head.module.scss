@@ -1,3 +1,5 @@
+@use "../../app/[locale]/styles/variables.scss" as *;
+
 .header {
   padding: 1rem;
   display: flex;
@@ -11,6 +13,6 @@
   top: 0;
   left: 0;
   width: 100%;
-  background: white;
   z-index: 1000;
+  background-color: $white;
 }
