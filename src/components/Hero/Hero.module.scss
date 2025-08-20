@@ -39,4 +39,15 @@
       backface-visibility: hidden;
     }
   }
+
+  &__letterWrap {
+    display: inline-block;
+    overflow: hidden;
+    padding-bottom: 0.02em;
+  }
+
+  &__letter {
+    display: inline-block;
+    will-change: transform, opacity;
+  }
 }
