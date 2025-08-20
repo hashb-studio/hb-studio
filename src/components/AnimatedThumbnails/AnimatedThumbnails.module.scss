@@ -1,9 +1,9 @@
 .animated-thumbnails {
   padding: 10rem 2rem;
   background-color: black;
-  position: absolute;
 
   &__grid {
+    position: relative;
     display: grid;
     grid-template-columns: 1fr;
     padding: 0 clamp(2rem, 4vw, 4.4rem);
