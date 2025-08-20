@@ -1,3 +1,5 @@
+@import "../../app/[locale]/styles/variables.scss";
+
 .hero {
   position: relative;
   min-height: 100svh;
@@ -13,11 +15,12 @@
   }
 
   &__title {
-    font-size: clamp(2.4rem, 7.5vw, 5rem);
+    font-size: clamp(2.4rem, 12vw, 14rem);
     line-height: 1.05;
     letter-spacing: -0.02em;
     font-weight: 800;
     will-change: transform, opacity, filter;
+    color: $red;
 
     span {
       will-change: transform, opacity;
