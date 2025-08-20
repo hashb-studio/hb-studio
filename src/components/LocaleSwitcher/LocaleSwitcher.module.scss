@@ -1,0 +1,31 @@
+.localeButton {
+  flex: 0 0 auto;
+  text-align: right;
+  position: relative;
+}
+
+.currentLocale {
+  color: black;
+  text-transform: uppercase;
+  cursor: default;
+  font-weight: 500;
+}
+
+.localeList {
+  color: black;
+  list-style: none;
+  text-transform: uppercase;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: transparent;
+}
+.locale {
+  cursor: pointer;
+  opacity: 0.7;
+  font-weight: 500;
+}
+
+.locale:hover {
+  opacity: 1;
+}
