@@ -1,4 +1,4 @@
-@import "../../app/[locale]/styles/variables.scss";
+@use "../../app/[locale]/styles/variables.scss" as *;
 
 .hero {
   position: relative;
