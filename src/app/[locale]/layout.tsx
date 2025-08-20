@@ -4,6 +4,13 @@ import { routing } from "@/i18n/routing";
 
 import "./globals.scss";
 import { getMessages, setRequestLocale } from "next-intl/server";
+import localFont from "next/font/local";
+
+export const customFont = localFont({
+  src: [{ path: "../fonts/Yourmate.ttf", weight: "400", style: "normal" }],
+  variable: "--font-custom",
+  display: "swap",
+});
 
 export default async function LocaleLayout({
   children,
@@ -23,7 +30,7 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className={customFont.variable}>
       <body>
         <NextIntlClientProvider messages={messages}>
           {children}

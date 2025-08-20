@@ -29,7 +29,7 @@ export const Hero = () => {
             damping: 18,
             mass: 0.6,
           }}
-          className={cx("hero__title")}
+          className={cx("hero__title", "customFont")}
         >
           {titleText.split("").map((char, index) => (
             <motion.span
