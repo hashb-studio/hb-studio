@@ -8,6 +8,35 @@ import { motion } from "motion/react";
 
 const cx = classNames.bind(styles);
 
+const titleContainer = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const letterWrap = {
+  hidden: {},
+  show: {},
+};
+
+const letter = {
+  hidden: { y: "120%", opacity: 0 },
+  show: {
+    y: "0%",
+    opacity: 1,
+    transition: {
+      type: "spring" as const,
+      stiffness: 800,
+      damping: 36,
+      mass: 0.6,
+    },
+  },
+};
+
 export const Hero = () => {
   const t = useTranslations("Hero");
 
@@ -20,32 +49,21 @@ export const Hero = () => {
     <section ref={sectionRef} className={cx("hero")}>
       <div className={cx("hero__content")}>
         <motion.h1
-          initial={{ opacity: 0, y: 24, scale: 0.98 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          variants={titleContainer}
+          initial="hidden"
+          whileInView="show"
           viewport={{ once: true, amount: 0.6 }}
-          transition={{
-            type: "spring",
-            stiffness: 120,
-            damping: 18,
-            mass: 0.6,
-          }}
           className={cx("hero__title", "customFont")}
         >
-          {titleText.split("").map((char, index) => (
+          {Array.from(titleText).map((char, i) => (
             <motion.span
-              key={index}
-              initial={{ opacity: 0, y: 20, rotateX: -90 }}
-              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-              viewport={{ once: true, amount: 0.6 }}
-              transition={{
-                type: "spring",
-                stiffness: 200,
-                damping: 20,
-                delay: index * 0.03,
-              }}
-              style={{ display: "inline-block" }}
+              key={`${char}-${i}`}
+              className={cx("hero__letterWrap")}
+              variants={letterWrap}
             >
-              {char === " " ? "\u00A0" : char}
+              <motion.span className={cx("hero__letter")} variants={letter}>
+                {char === " " ? "\u00A0" : char}
+              </motion.span>
             </motion.span>
           ))}
         </motion.h1>

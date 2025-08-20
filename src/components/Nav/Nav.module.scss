@@ -1,3 +1,5 @@
+@use "../../app/[locale]/styles/variables.scss" as *;
+
 .navbar {
   display: flex;
   gap: 2rem;
@@ -10,7 +12,7 @@
     transition: color 0.3s ease;
 
     &:hover {
-      color: red;
+      color: $red;
     }
   }
 }
