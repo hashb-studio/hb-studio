@@ -22,9 +22,9 @@
 .text {
   font-size: 45vh;
   color: #ff6b6b;
+  font-weight: 400;
+  white-space: nowrap;
   @media (min-width: 864px) {
     font-size: 60vh;
   }
-  font-weight: 400;
-  white-space: nowrap;
 }
