@@ -1,0 +1,30 @@
+.contacts {
+  position: relative;
+  width: 100%;
+  height: 300vh;
+  padding: 20px;
+
+  @media (min-width: 864px) {
+    padding: 40px;
+  }
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.text {
+  font-size: 45vh;
+  color: #ff6b6b;
+  @media (min-width: 864px) {
+    font-size: 60vh;
+  }
+  font-weight: 400;
+  white-space: nowrap;
+}
