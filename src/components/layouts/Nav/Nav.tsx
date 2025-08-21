@@ -28,17 +28,17 @@ export const Nav = () => {
   const dataNav = [
     {
       label: t("projects"),
-      href: "#projects",
+      href: "/#projects",
     },
 
     {
       label: t("services"),
-      href: "#services",
+      href: "/#services",
     },
 
     {
       label: t("contact"),
-      href: "#contact",
+      href: "/#contact",
     },
   ];
 
