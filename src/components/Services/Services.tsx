@@ -75,6 +75,7 @@ const Services = ({ services }: Services) => {
         minHeight: "100vh",
         padding: "4rem 2rem",
       }}
+      id="services"
     >
       <ul>
         {services.map((service, i) => (

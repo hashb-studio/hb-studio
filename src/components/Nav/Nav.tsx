@@ -7,6 +7,8 @@ import { useBelowLaptop } from "@/hooks/useMediaQuery";
 import { LocaleSwitcher } from "../LocaleSwitcher/LocaleSwitcher";
 import { ThemeToggle } from "../ThemeToggle/ThemeToggle";
 import { useTheme } from "next-themes";
+import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 
 const cx = classNames.bind(styles);
 
@@ -14,7 +16,7 @@ export const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const isMobile = useBelowLaptop();
   const { theme } = useTheme();
-
+  const t = useTranslations("Navbar");
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -23,23 +25,35 @@ export const Nav = () => {
     setIsOpen(false);
   };
 
+  const dataNav = [
+    {
+      label: t("projects"),
+      href: "#projects",
+    },
+
+    {
+      label: t("services"),
+      href: "#services",
+    },
+
+    {
+      label: t("contact"),
+      href: "#contact",
+    },
+  ];
+
   return (
     <>
       {!isMobile ? (
         <>
           <nav className={cx("navbar")}>
-            <a href="#" className={cx("navbar__link")}>
-              Accueil
-            </a>
-            <a href="#" className={cx("navbar__link")}>
-              À propos
-            </a>
-            <a href="#" className={cx("navbar__link")}>
-              Services
-            </a>
-            <a href="#" className={cx("navbar__link")}>
-              Contact
-            </a>
+            {dataNav.map((item, index) => (
+              <div key={index}>
+                <Link href={item.href} className={cx("navbar__link")}>
+                  {item.label}
+                </Link>
+              </div>
+            ))}
             <LocaleSwitcher />
             <ThemeToggle />
           </nav>
@@ -73,34 +87,17 @@ export const Nav = () => {
                 </button>
               </div>
               <div className={cx("navMobile__menu-links")}>
-                <a
-                  href="#"
-                  className={cx("navMobile__mobile-nav-link")}
-                  onClick={closeMenu}
-                >
-                  Accueil
-                </a>
-                <a
-                  href="#"
-                  className={cx("navMobile__mobile-nav-link")}
-                  onClick={closeMenu}
-                >
-                  À propos
-                </a>
-                <a
-                  href="#"
-                  className={cx("navMobile__mobile-nav-link")}
-                  onClick={closeMenu}
-                >
-                  Services
-                </a>
-                <a
-                  href="#"
-                  className={cx("navMobile__mobile-nav-link")}
-                  onClick={closeMenu}
-                >
-                  Contact
-                </a>
+                {dataNav.map((item, index) => (
+                  <div key={index}>
+                    <Link
+                      href={item.href}
+                      className={cx("navMobile__mobile-nav-link")}
+                      onClick={closeMenu}
+                    >
+                      {item.label}
+                    </Link>
+                  </div>
+                ))}
               </div>
             </nav>
           </div>

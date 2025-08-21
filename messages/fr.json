@@ -1,4 +1,9 @@
 {
+  "Navbar": {
+    "projects": "Projets",
+    "services": "Services",
+    "contact": "Contact"
+  },
   "Hero": {
     "title": "Hb studio",
     "subtitle": "Un studio de création d'applications web et mobile"

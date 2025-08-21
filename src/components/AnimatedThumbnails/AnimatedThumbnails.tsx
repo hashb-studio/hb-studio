@@ -27,7 +27,7 @@ export const AnimatedThumbnails: React.FC<AnimatedThumbnailsProps> = ({
   const isOdd = cards.length % 2 !== 0;
 
   return (
-    <section className={cx("animated-thumbnails")}>
+    <section className={cx("animated-thumbnails")} id="projects">
       <div
         className={cx("animated-thumbnails__grid", {
           "odd-number": isOdd,
