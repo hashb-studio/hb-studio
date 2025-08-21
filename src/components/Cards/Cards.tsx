@@ -35,6 +35,7 @@ export const payload = {
         "Nos solutions sont pensées pour être intuitives, accessibles et adaptées",
       mediaWidth: "40vw",
       mediaheight: "50vh",
+      slug: "dependant-tv",
     },
     {
       marginTop: "20vw",
@@ -45,6 +46,7 @@ export const payload = {
         "Des templates pensés pour s’intégrer dans des projets modernes et agiles",
       mediaheight: "35vh",
       mediaWidth: "35vw",
+      slug: "ali-bensaali",
     },
     {
       mediaWidth: "35vw",
@@ -55,6 +57,7 @@ export const payload = {
       description:
         "Des projets capables de s’adapter aux besoins globaux et multiculturels.",
       marginRight: "10vw",
+      slug: "labcom-optimaa",
     },
     {
       marginTop: "10vw",
@@ -63,6 +66,7 @@ export const payload = {
       description: "Des composants animés, entre précision et créativité",
       mediaWidth: "35vw",
       mediaheight: "35vh",
+      slug: "cocoa-bio",
     },
     {
       imageUrlPortrait: "/images/nature-9558835_1280.jpg",
