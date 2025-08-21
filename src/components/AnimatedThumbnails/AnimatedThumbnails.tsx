@@ -3,6 +3,7 @@ import styles from "./AnimatedThumbnails.module.scss";
 import classNames from "classnames/bind";
 import { AnimatedLogo } from "../AnimatedLogo/AnimatedLogo";
 import Cards from "../Cards/Cards";
+import { Link } from "@/i18n/navigation";
 
 const cx = classNames.bind(styles);
 
@@ -18,6 +19,7 @@ type AnimatedThumbnailsProps = {
     size?: string;
     marginTop?: string;
     marginBottom?: string;
+    slug?: string;
   }[];
 };
 
@@ -27,7 +29,7 @@ export const AnimatedThumbnails: React.FC<AnimatedThumbnailsProps> = ({
   const isOdd = cards.length % 2 !== 0;
 
   return (
-    <section className={cx("animated-thumbnails")}>
+    <section className={cx("animated-thumbnails")} id="projects">
       <div
         className={cx("animated-thumbnails__grid", {
           "odd-number": isOdd,
@@ -35,7 +37,9 @@ export const AnimatedThumbnails: React.FC<AnimatedThumbnailsProps> = ({
       >
         <AnimatedLogo />
         {cards.map((card, index) => (
-          <Cards key={index} {...card} />
+          <Link key={index} href={`/${card.slug}`}>
+            <Cards key={index} {...card} />
+          </Link>
         ))}
       </div>
     </section>

@@ -63,7 +63,8 @@ const Services = ({ services }: Services) => {
 
   const [dynamicColor, setDynamicColor] = React.useState(outputColor[0]);
   React.useEffect(() => {
-    return colorMV.onChange((v) => setDynamicColor(v));
+    const unsubscribe = colorMV.on("change", (v) => setDynamicColor(v));
+    return unsubscribe;
   }, [colorMV]);
 
   return (
@@ -75,6 +76,7 @@ const Services = ({ services }: Services) => {
         minHeight: "100vh",
         padding: "4rem 2rem",
       }}
+      id="services"
     >
       <ul>
         {services.map((service, i) => (
