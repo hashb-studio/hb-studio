@@ -2,6 +2,7 @@
 import React from "react";
 import classNames from "classnames/bind";
 import styles from "./Logo.module.scss";
+import { Link } from "@/i18n/navigation";
 
 const cx = classNames.bind(styles);
 
@@ -19,12 +20,14 @@ const Logo: React.FC<LogoProps> = ({
   className,
 }) => {
   return (
-    <img
-      src={src}
-      alt={alt}
-      className={cx("logo", className)}
-      style={{ width: size, height: size }}
-    />
+    <Link href="/">
+      <img
+        src={src}
+        alt={alt}
+        className={cx("logo", className)}
+        style={{ width: size, height: size }}
+      />
+    </Link>
   );
 };
 
