@@ -1,0 +1,9 @@
+# .husky/pre-push
+
+echo "🏗️ Vérification du build Next…"
+npm run -s build || {
+  echo
+  echo "❌ Le build a échoué. Le push est annulé."
+  echo "💡 Lance 'npm run build' en local pour voir les erreurs et corriger."
+  exit 1
+}
