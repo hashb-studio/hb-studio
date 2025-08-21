@@ -1,12 +1,12 @@
 "use client";
 
 import React from "react";
-import { Hero } from "../Hero/Hero";
-import { AnimatedThumbnails } from "@/components/AnimatedThumbnails/AnimatedThumbnails";
-import { Head } from "../Head/Head";
-import Services, { services } from "../Services/Services";
 import { payload } from "../Cards/Cards";
-import Contacts from "../Contacts/Contacts";
+import Contacts from "../sections/Contacts/Contacts";
+import { Hero } from "../sections/Hero/Hero";
+import { Head } from "@/components/layouts/Head/Head";
+import { AnimatedThumbnails } from "../sections/AnimatedThumbnails/AnimatedThumbnails";
+import Services, { services } from "../sections/Services/Services";
 
 const HomeTemplate = () => {
   return (
