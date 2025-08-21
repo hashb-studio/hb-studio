@@ -6,6 +6,7 @@ import Services, { services } from "../../sections/Services/Services";
 import { payload } from "../../Cards/Cards";
 import { Head } from "@/components/layouts/Head/Head";
 import { AnimatedThumbnails } from "@/components/sections/AnimatedThumbnails/AnimatedThumbnails";
+import Contacts from "@/components/sections/Contacts/Contacts";
 
 const HomeTemplate = () => {
   return (
@@ -15,6 +16,7 @@ const HomeTemplate = () => {
         <Hero />
         <AnimatedThumbnails cards={payload.cards} />
         <Services services={services} />
+        <Contacts />
       </main>
     </>
   );
