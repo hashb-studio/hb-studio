@@ -1,4 +1,4 @@
-import { ProjectDetails } from "@/components/ProjectDetails/ProjectDetails";
+import { ProjectDetails } from "@/components/pages/ProjectDetails/ProjectDetails";
 
 type tParamsSlug = Promise<{ locale: string; slug: string }>;
 export default async function ProjectDetailsPage(props: {
