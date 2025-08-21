@@ -28,12 +28,12 @@ export const AnimatedThumbnails: React.FC<AnimatedThumbnailsProps> = ({
 
   return (
     <section className={cx("animated-thumbnails")}>
-      <AnimatedLogo />
       <div
         className={cx("animated-thumbnails__grid", {
           "odd-number": isOdd,
         })}
       >
+        <AnimatedLogo />
         {cards.map((card, index) => (
           <Cards key={index} {...card} />
         ))}
