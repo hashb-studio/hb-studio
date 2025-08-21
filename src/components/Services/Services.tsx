@@ -63,7 +63,8 @@ const Services = ({ services }: Services) => {
 
   const [dynamicColor, setDynamicColor] = React.useState(outputColor[0]);
   React.useEffect(() => {
-    return colorMV.onChange((v) => setDynamicColor(v));
+    const unsubscribe = colorMV.on("change", (v) => setDynamicColor(v));
+    return unsubscribe;
   }, [colorMV]);
 
   return (
