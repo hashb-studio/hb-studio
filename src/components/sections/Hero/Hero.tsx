@@ -53,7 +53,7 @@ export const Hero = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.6 }}
-          className={cx("hero__title", "customFont")}
+          className={cx("hero__title")}
         >
           {Array.from(titleText).map((char, i) => (
             <motion.span
