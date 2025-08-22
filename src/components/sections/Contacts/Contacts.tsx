@@ -3,6 +3,7 @@ import { useRef } from "react";
 import classNames from "classnames/bind";
 import styles from "./Contacts.module.scss";
 import MailButton from "@/components/MailButton/MailButton";
+import { useAboveTablet } from "@/hooks/useMediaQuery";
 
 const cx = classNames.bind(styles);
 
@@ -14,7 +15,13 @@ export const Contacts = () => {
     offset: ["start start", "end end"],
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["40%", "-40%"]);
+  const isLaptop = useAboveTablet();
+
+  const x = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [isLaptop ? "40%" : "45%", isLaptop ? "-40%" : "-45%"],
+  );
 
   return (
     <section ref={ref} className={cx("contacts")}>
@@ -22,7 +29,7 @@ export const Contacts = () => {
         <motion.h2 style={{ x }} className={cx("text")}>
           On en parle ?
         </motion.h2>
-        <MailButton email="" />
+        <MailButton email="" className={cx("mail-button")} />
       </div>
     </section>
   );
