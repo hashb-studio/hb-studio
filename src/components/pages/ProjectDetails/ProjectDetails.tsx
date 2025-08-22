@@ -5,6 +5,7 @@ import React from "react";
 import styles from "./ProjectDetails.module.scss";
 import { Badge } from "@/components/Badge/Badge";
 import { BlocDetails } from "@/components/BlocDetails/BlocDetails";
+import { ExternalLink, LucideIcon, SquareCode } from "lucide-react";
 
 const cx = classNames.bind(styles);
 
@@ -21,21 +22,26 @@ interface Project {
   features: string[];
 }
 
+interface ActionButton {
+  label: string;
+  href?: string;
+  Icon?: LucideIcon;
+}
 interface ProjectDetailProps {
   project: Project;
 }
 
 export const ProjectDetails = ({ project }: ProjectDetailProps) => {
-  const dataButtons = [
+  const dataButtons: ActionButton[] = [
     {
       label: "Demo",
-      onClick: project.demoUrl,
-      icon: "",
+      href: project.demoUrl,
+      Icon: ExternalLink,
     },
     {
       label: "Code source",
-      onClick: project.githubUrl,
-      icon: "",
+      href: project.githubUrl,
+      Icon: SquareCode,
     },
   ];
 
@@ -92,20 +98,28 @@ export const ProjectDetails = ({ project }: ProjectDetailProps) => {
           </div>
           <p>{project.description}</p>
           <div className={cx("project-details__buttons")}>
-            {dataButtons.map((button, index) => (
-              <a
-                key={index}
-                className={cx(
-                  "project-details__button",
-                  index === 0
-                    ? "project-details__button--red"
-                    : "project-details__button--white",
-                )}
-                href={button.onClick}
-              >
-                {button.label}
-              </a>
-            ))}
+            {dataButtons
+              .filter((b) => !!b.href)
+              .map((button, index) => (
+                <a
+                  key={index}
+                  className={cx(
+                    "project-details__button",
+                    index === 0
+                      ? "project-details__button--red"
+                      : "project-details__button--white",
+                  )}
+                  href={button.href}
+                >
+                  {button.Icon && (
+                    <button.Icon
+                      aria-hidden="true"
+                      className={cx("project-details__icon")}
+                    />
+                  )}
+                  <span>{button.label}</span>
+                </a>
+              ))}
           </div>
         </section>
         <section className={cx("project-details__bloc-details")}>
