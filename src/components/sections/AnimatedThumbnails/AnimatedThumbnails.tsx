@@ -19,7 +19,7 @@ type AnimatedThumbnailsProps = {
     size?: string;
     marginTop?: string;
     marginBottom?: string;
-    slug?: string;
+    slug: string;
   }[];
 };
 

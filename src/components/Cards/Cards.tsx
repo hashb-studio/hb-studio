@@ -5,6 +5,7 @@ import { Orientation, useOrientation } from "@/hooks/useOrientation";
 import { useAboveTablet } from "@/hooks/useMediaQuery";
 import { Cursor } from "../Cursor/Cursor";
 import { useScroll, useTransform, motion, useInView } from "framer-motion";
+import { useRouter } from "@/i18n/navigation";
 
 const cx = classNames.bind(styles);
 
@@ -23,6 +24,7 @@ type CardType = {
   marginBottom?: string;
   marginRight?: string;
   marginLeft?: string;
+  slug: string;
 };
 
 export const payload = {
@@ -74,6 +76,7 @@ export const payload = {
       title: "Durabilité et harmonie",
       description: "écologie et équilibre au cœur de nos conceptions.",
       mediaWidth: "50vw",
+      slug: "nature-project",
     },
   ] as CardType[],
 };
@@ -93,6 +96,7 @@ const Cards = ({
   marginBottom,
   marginRight,
   marginLeft,
+  slug,
 }: {
   imageUrlPortrait?: string;
   imageUrlLandscape?: string;
@@ -108,6 +112,7 @@ const Cards = ({
   marginBottom?: string;
   marginRight?: string;
   marginLeft?: string;
+  slug: string;
 }) => {
   const orientation = useOrientation();
   const isPortrait = orientation === Orientation.Portrait;
@@ -162,6 +167,11 @@ const Cards = ({
   }, [isInView]);
 
   const [zoomActive, setZoomActive] = useState(false);
+  const router = useRouter();
+
+  const handleCardClick = () => {
+    router.push(`/${slug}`);
+  };
 
   return (
     <div>
@@ -171,6 +181,9 @@ const Cards = ({
         })}
         style={cardStyle}
         ref={containerRef}
+        onClick={handleCardClick}
+        role="button"
+        tabIndex={0}
         onMouseMove={(e) => {
           if (!isLaptop) return;
           const rect = containerRef.current!.getBoundingClientRect();
