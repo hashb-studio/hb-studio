@@ -7,5 +7,103 @@
   "Hero": {
     "title": "Hb studio",
     "subtitle": "A web and mobile application creation studio"
+  },
+  "Projects": {
+    "dependant-tv": {
+      "id": "dependant-tv",
+      "title": "Dependant.tv",
+      "description": "Un site portfolio pour une boîte de production...",
+      "longDescription": "Dependant.tv est un site portfolio moderne...",
+      "images": [],
+      "technologies": [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "SCSS",
+        "Framer Motion"
+      ],
+      "category": "Frontend",
+      "demoUrl": "https://dependant.tv",
+      "githubUrl": "https://github.com/dependant-tv/portfolio",
+      "features": [
+        "Design responsive et moderne",
+        "Animations fluides avec Framer Motion",
+        "Portfolio de projets audiovisuels",
+        "Interface utilisateur intuitive",
+        "Performance optimisée"
+      ]
+    },
+    "ali-bensaali": {
+      "id": "ali-bensaali",
+      "title": "Ali Bensaali",
+      "description": "A portfolio website for an artist...",
+      "longDescription": "Ali Bensaali is a modern portfolio website...",
+      "images": [],
+      "technologies": [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "SCSS",
+        "Framer Motion"
+      ],
+      "category": "Frontend",
+      "demoUrl": "https://alibensaali.com",
+      "githubUrl": "https://github.com/dependant-tv/portfolio",
+      "features": [
+        "Responsive design",
+        "Fluid animations with Framer Motion",
+        "Portfolio of audiovisual projects",
+        "Intuitive user interface",
+        "Performance optimized"
+      ]
+    },
+    "labcom-optimaa": {
+      "id": "labcom",
+      "title": "Labcom",
+      "description": "A portfolio website for a large scientific project.",
+      "longDescription": "Labcom is a modern portfolio website...",
+      "images": [],
+      "technologies": [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "SCSS",
+        "Framer Motion"
+      ],
+      "category": "Frontend",
+      "demoUrl": "https://labcom-optimaa.com",
+      "githubUrl": "https://github.com/dependant-tv/portfolio",
+      "features": [
+        "Responsive design",
+        "Fluid animations with Framer Motion",
+        "Portfolio of audiovisual projects",
+        "Intuitive user interface",
+        "Performance optimized"
+      ]
+    },
+    "cocoa-bio": {
+      "id": "cocoa-bio",
+      "title": "Cocoa Bio",
+      "description": "A portfolio website for a bio company...",
+      "longDescription": "Cocoa Bio is a modern portfolio website...",
+      "images": [],
+      "technologies": [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "SCSS",
+        "Framer Motion"
+      ],
+      "category": "Frontend",
+      "demoUrl": "https://cocoa-bio.com",
+      "githubUrl": "https://github.com/dependant-tv/portfolio",
+      "features": [
+        "Design responsive et moderne",
+        "Animations fluides avec Framer Motion",
+        "Portfolio of audiovisual projects",
+        "Intuitive user interface",
+        "Performance optimized"
+      ]
+    }
   }
 }
