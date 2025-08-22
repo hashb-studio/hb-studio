@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./AnimatedThumbnails.module.scss";
 import classNames from "classnames/bind";
-import { AnimatedLogo } from "../AnimatedLogo/AnimatedLogo";
-import Cards from "../Cards/Cards";
 import { Link } from "@/i18n/navigation";
+import { AnimatedLogo } from "@/components/AnimatedLogo/AnimatedLogo";
+import Cards from "@/components/Cards/Cards";
 
 const cx = classNames.bind(styles);
 

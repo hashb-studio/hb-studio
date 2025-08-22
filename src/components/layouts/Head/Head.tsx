@@ -4,9 +4,9 @@ import classNames from "classnames/bind";
 import React from "react";
 import styles from "./Head.module.scss";
 import { Nav } from "../Nav/Nav";
-import Logo from "../Logo/Logo";
 import { useBelowLaptop } from "@/hooks/useMediaQuery";
 import { ThemeToggle } from "../ThemeToggle/ThemeToggle";
+import Logo from "@/components/Logo/Logo";
 
 const cx = classNames.bind(styles);
 
