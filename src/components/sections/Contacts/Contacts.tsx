@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import classNames from "classnames/bind";
 import styles from "./Contacts.module.scss";
+import MailButton from "@/components/MailButton/MailButton";
 
 const cx = classNames.bind(styles);
 
@@ -21,6 +22,7 @@ export const Contacts = () => {
         <motion.h2 style={{ x }} className={cx("text")}>
           On en parle ?
         </motion.h2>
+        <MailButton email="" />
       </div>
     </section>
   );
