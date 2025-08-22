@@ -4,6 +4,7 @@ import classNames from "classnames/bind";
 import { Link } from "@/i18n/navigation";
 import { AnimatedLogo } from "@/components/AnimatedLogo/AnimatedLogo";
 import Cards from "@/components/Cards/Cards";
+import { useParams } from "next/navigation";
 
 const cx = classNames.bind(styles);
 
@@ -27,6 +28,7 @@ export const AnimatedThumbnails: React.FC<AnimatedThumbnailsProps> = ({
   cards,
 }) => {
   const isOdd = cards.length % 2 !== 0;
+  const { locale } = useParams();
 
   return (
     <section className={cx("animated-thumbnails")} id="projects">
@@ -37,7 +39,7 @@ export const AnimatedThumbnails: React.FC<AnimatedThumbnailsProps> = ({
       >
         <AnimatedLogo />
         {cards.map((card, index) => (
-          <Link key={index} href={`/${card.slug}`}>
+          <Link key={index} href={`/${card.slug}`} locale={locale as string}>
             <Cards key={index} {...card} />
           </Link>
         ))}

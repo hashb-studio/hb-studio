@@ -27,6 +27,9 @@
     text-decoration: none;
     border: 2px solid $red;
     transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 
     &--red {
       background-color: $red;
@@ -78,4 +81,10 @@
       grid-column: 1;
     }
   }
+}
+
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
