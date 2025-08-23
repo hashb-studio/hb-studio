@@ -134,6 +134,32 @@
   }
 }
 
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+
+  &__content {
+    text-align: center;
+    color: white;
+  }
+
+  &__logo {
+    width: 100px;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+
+  &__label {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+}
+
 :global(html.dark) .navMobile__mobile-menu {
   background-color: $black;
 }
