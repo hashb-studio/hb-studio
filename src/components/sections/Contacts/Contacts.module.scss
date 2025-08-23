@@ -53,3 +53,27 @@
   background-color: #ffff;
   color: #ff6b6b;
 }
+
+.ball {
+  position: absolute;
+  top: 30%;
+  left: 51%;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #ff6b6b;
+  z-index: -10;
+}
+
+.contact-info {
+  font-size: 16px;
+  padding: 10px 20px 0px 20px;
+  margin-bottom: 80px;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+
+  @media (min-width: 864px) {
+    font-size: 36px;
+    padding: 20px 80px 80px 40px;
+  }
+}
