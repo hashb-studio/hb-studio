@@ -49,7 +49,7 @@ export const Contacts = () => {
 
   return (
     <section>
-      <div ref={ref} className={cx("contacts")}>
+      <div ref={ref} className={cx("contacts")} id="contact">
         <div className={cx("sticky")}>
           <motion.h2 style={{ x }} className={cx("text")}>
             On en parle ?
