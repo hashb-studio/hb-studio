@@ -24,7 +24,7 @@ export const services: ServiceProps[] = [
       "Responsive design et SEO intégré pour une visibilité optimale.",
     ],
     tags: ["UI Design", "UX Conception", "Site vitrine", "Site ecommerce"],
-    backgroundColor: "#F5F5F5",
+    backgroundColor: "#B3B3B3",
     dynamicColor: "#000",
   },
   {

@@ -6,12 +6,16 @@ const cx = classNames.bind(styles);
 
 interface TypeWriterProps {
   text: string;
+  link?: string;
+  linkText?: string;
   speed?: number;
   start?: boolean;
 }
 
 const TypeWriter: React.FC<TypeWriterProps> = ({
   text,
+  link,
+  linkText,
   speed = 50,
   start = true,
 }) => {
@@ -39,7 +43,16 @@ const TypeWriter: React.FC<TypeWriterProps> = ({
     return () => clearInterval(interval);
   }, [text, speed, start]);
 
-  return <p className={cx("typewriter")}>{displayedText}</p>;
+  return (
+    <p className={cx("typewriter")}>
+      {displayedText}
+      {link && linkText && (
+        <a href={link} target="_blank" rel="noopener noreferrer">
+          {linkText}
+        </a>
+      )}
+    </p>
+  );
 };
 
 export default TypeWriter;
