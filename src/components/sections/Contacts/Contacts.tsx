@@ -63,10 +63,15 @@ export const Contacts = () => {
       </div>
       <div ref={infoRef} className={cx("contact-info")}>
         <TypeWriter
-          text="Numero de téléphone: 0700******"
+          text="Instagram:"
+          linkText="hbstudioparis2025"
+          link="https://www.instagram.com/hbstudioparis2025/"
           start={startAnimation}
         />
-        <TypeWriter text="E-Mail: HBstudio@gmail.com" start={startAnimation} />
+        <TypeWriter
+          text="E-Mail: hbstudioparis2025@gmail.com"
+          start={startAnimation}
+        />
       </div>
     </section>
   );
