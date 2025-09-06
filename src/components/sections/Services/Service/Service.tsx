@@ -4,7 +4,7 @@ import styles from "./Service.module.scss";
 
 const cx = classNames.bind(styles);
 
-export type ServiceProps = {
+type ServiceProps = {
   title: string;
   description: string[];
   tags: string[];
