@@ -12,11 +12,13 @@ import styles from "./Contacts.module.scss";
 import MailButton from "@/components/MailButton/MailButton";
 import { useAboveTablet } from "@/hooks/useMediaQuery";
 import TypeWriter from "@/components/TypeWritter/TypeWritter";
+import { useTranslations } from "next-intl";
 
 const cx = classNames.bind(styles);
 
 export const Contacts = () => {
   const ref = useRef<HTMLDivElement | null>(null);
+  const t = useTranslations("Contacts");
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -52,7 +54,7 @@ export const Contacts = () => {
       <div ref={ref} className={cx("contacts")} id="contact">
         <div className={cx("sticky")}>
           <motion.h2 style={{ x }} className={cx("text")}>
-            On en parle ?
+            {t("title")}
           </motion.h2>
           <motion.div
             style={{ y, x: "50%", translateX: "-50%" } as MotionStyle}

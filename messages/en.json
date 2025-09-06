@@ -8,6 +8,51 @@
     "title": "Hb studio",
     "subtitle": "A web and mobile application creation studio"
   },
+  "AnimatedThumbnails": [
+    {
+      "title": "Smooth User Experience",
+      "description": "Our solutions are designed to be intuitive, accessible, and adaptable"
+    },
+    {
+      "title": "Innovation",
+      "description": "Templates designed to integrate into modern and agile projects"
+    },
+    {
+      "title": "International Reach",
+      "description": "Projects capable of adapting to global and multicultural needs"
+    },
+    {
+      "title": "Expertise in Action",
+      "description": "Animated components, combining precision and creativity"
+    },
+    {
+      "title": "Sustainability and Harmony",
+      "description": "Ecology and balance at the heart of our designs"
+    }
+  ],
+  "Services": [
+    {
+      "title": "Applications",
+      "description1": "Design of intuitive mobile and web applications.",
+      "description2": "We develop smooth experiences for your users.",
+      "description3": "Performance optimization and ongoing maintenance."
+    },
+    {
+      "title": "Websites",
+      "description1": "Creation of modern and high-performing showcase websites.",
+      "description2": "Our sites are designed to reflect your identity and engage your clients.",
+      "description3": "Responsive design and built-in SEO for optimal visibility."
+    },
+    {
+      "title": "Creative",
+      "description1": "We craft unique digital experiences.",
+      "description2": "Impactful design to captivate and inspire your users.",
+      "description3": "Creation of animations and immersive prototypes."
+    }
+  ],
+  "Contacts": {
+    "title": "Shall we talk?"
+   },     
   "Projects": {
     "dependant-tv": {
       "id": "dependant-tv",

@@ -8,6 +8,54 @@
     "title": "Hb studio",
     "subtitle": "Un studio de création d'applications web et mobile"
   },
+  "AnimatedThumbnails": [{
+    "title": "Expérience utilisateur fluide",
+    "description":
+      "Nos solutions sont pensées pour être intuitives, accessibles et adaptées"
+    },
+      {
+    "title": "Innovation",
+    "description":
+    "Des templates pensés pour s’intégrer dans des projets modernes et agiles"
+  },
+  {
+    "title": "Ouverture internationale",
+    "description":
+    "Des projets capables de s’adapter aux besoins globaux et multiculturels."
+  },
+  {
+    "title": "Savoir-faire en action",
+    "description":
+      "Des composants animés, entre précision et créativité"
+  },
+  {
+    "title": "Durabilité et harmonie",
+    "description":
+      "écologie et équilibre au cœur de nos conceptions."
+  }],
+  "Services": [
+    {
+      "title": "Applications",
+      "description1": "Conception d’applications mobiles et web intuitives.",
+      "description2": "Nous développons des expériences fluides pour vos utilisateurs.",
+      "description3": "Optimisation des performances et maintenance continue."
+    },
+    {
+      "title": "Sites Web",
+      "description1": "Création de sites vitrines modernes et performants.",
+      "description2": "Nos sites sont pensés pour refléter votre identité et séduire vos clients.",
+      "description3": "Responsive design et SEO intégré pour une visibilité optimale."
+    },
+    {
+      "title": "Créatif",
+      "description1": "Nous imaginons des expériences digitales uniques.",
+      "description2": "Un design impactant pour captiver et inspirer vos utilisateurs.",
+      "description3": "Création d’animations et prototypes immersifs."
+    }
+  ],  
+  "Contacts": {
+   "title": "On en parle ?"
+  },
   "Projects": {
     "dependant-tv": {
       "id": "dependant-tv",
