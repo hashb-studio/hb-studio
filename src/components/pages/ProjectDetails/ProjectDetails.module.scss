@@ -4,6 +4,10 @@
   @include laptop {
     padding: 1rem 7rem;
   }
+
+  li {
+    list-style: none;
+  }
   &__container {
     display: flex;
     flex-direction: column;
@@ -87,4 +91,23 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+}
+
+.features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.feature-item {
+  padding: 12px 0;
+  position: relative;
+}
+
+.feature-separator {
+  height: 1px;
+  margin: 20px 0;
+  background-color: grey;
+  width: 100%;
+  border-radius: 2px;
 }
