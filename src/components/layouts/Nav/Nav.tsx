@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import classNames from "classnames/bind";
@@ -10,6 +11,7 @@ import { useTheme } from "next-themes";
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { AnimatePresence, motion } from "framer-motion";
+import { X } from "lucide-react";
 
 const cx = classNames.bind(styles);
 
@@ -114,12 +116,13 @@ export const Nav = () => {
 
             <nav className={cx("navMobile__mobile-menu", { open: isOpen })}>
               <div className={cx("navMobile__menu-header")}>
+                <LocaleSwitcher />
                 <button
                   className={cx("navMobile__close-button")}
                   onClick={closeMenu}
                   aria-label="Fermer le menu"
                 >
-                  ×
+                  <X />
                 </button>
               </div>
               <div className={cx("navMobile__menu-links")}>

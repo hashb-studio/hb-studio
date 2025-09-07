@@ -1,52 +1,33 @@
 import React, { useRef } from "react";
-import Service, { ServiceProps } from "./Service/Service";
+import Service from "./Service/Service";
 import classNames from "classnames/bind";
 import styles from "./Services.module.scss";
 import { useScroll, motion, useTransform } from "framer-motion";
+import { useTranslations } from "next-intl";
 
-export const services: ServiceProps[] = [
+const cx = classNames.bind(styles);
+
+const services = [
   {
-    title: "Applications",
-    description: [
-      "Conception d’applications mobiles et web intuitives.",
-      "Nous développons des expériences fluides pour vos utilisateurs.",
-      "Optimisation des performances et maintenance continue.",
-    ],
-    tags: ["Application mobile", "PWA", "Performance", "Design system"],
+    tags: ["Mobile App", "PWA", "Performance", "Design System"],
     backgroundColor: "#00C9A7",
     dynamicColor: "#FFFFFF",
   },
   {
-    title: "Sites Web",
-    description: [
-      "Création de sites vitrines modernes et performants.",
-      "Nos sites sont pensés pour refléter votre identité et séduire vos clients.",
-      "Responsive design et SEO intégré pour une visibilité optimale.",
-    ],
-    tags: ["UI Design", "UX Conception", "Site vitrine", "Site ecommerce"],
+    tags: ["UI Design", "UX Design", "Showcase Site", "Ecommerce Site"],
     backgroundColor: "#B3B3B3",
-    dynamicColor: "#000",
+    dynamicColor: "#000000",
   },
   {
-    title: "Créatif",
-    description: [
-      "Nous imaginons des expériences digitales uniques.",
-      "Un design impactant pour captiver et inspirer vos utilisateurs.",
-      "Création d’animations et prototypes immersifs.",
-    ],
-    tags: ["Identité visuelle", "Animation", "Prototypage", "Audit UX"],
+    tags: ["Visual Identity", "Animation", "Prototyping", "UX Audit"],
     backgroundColor: "#FF6B6B",
     dynamicColor: "#FFFFFF",
   },
 ];
 
-interface Services {
-  services: ServiceProps[];
-}
+const Services = () => {
+  const t = useTranslations("Services");
 
-const cx = classNames.bind(styles);
-
-const Services = ({ services }: Services) => {
   const containerRef = useRef(null);
 
   const { scrollYProgress } = useScroll({
@@ -80,7 +61,17 @@ const Services = ({ services }: Services) => {
     >
       <ul>
         {services.map((service, i) => (
-          <Service key={i} {...service} dynamicColor={dynamicColor} />
+          <Service
+            key={i}
+            {...service}
+            dynamicColor={dynamicColor}
+            title={t(`${i}.title`)}
+            description={[
+              t(`${i}.description1`),
+              t(`${i}.description2`),
+              t(`${i}.description3`),
+            ]}
+          />
         ))}
       </ul>
     </motion.section>

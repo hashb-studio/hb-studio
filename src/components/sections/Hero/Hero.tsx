@@ -13,7 +13,7 @@ const titleContainer = {
   show: {
     transition: {
       staggerChildren: 0.2,
-      delayChildren: 0.4,
+      delayChildren: 0.2,
     },
   },
 };
@@ -31,8 +31,8 @@ const letter = {
     transition: {
       type: "spring" as const,
       stiffness: 800,
-      damping: 36,
-      mass: 0.6,
+      damping: 20,
+      mass: 0.3,
     },
   },
 };
