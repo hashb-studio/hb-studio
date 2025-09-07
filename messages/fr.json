@@ -8,31 +8,28 @@
     "title": "Hb studio",
     "subtitle": "Un studio de création d'applications web et mobile"
   },
-  "AnimatedThumbnails": [{
-    "title": "Expérience utilisateur fluide",
-    "description":
-      "Nos solutions sont pensées pour être intuitives, accessibles et adaptées"
+  "AnimatedThumbnails": [
+    {
+      "title": "Expérience utilisateur fluide",
+      "description": "Nos solutions sont pensées pour être intuitives, accessibles et adaptées"
     },
-      {
-    "title": "Innovation",
-    "description":
-    "Des templates pensés pour s’intégrer dans des projets modernes et agiles"
-  },
-  {
-    "title": "Ouverture internationale",
-    "description":
-    "Des projets capables de s’adapter aux besoins globaux et multiculturels."
-  },
-  {
-    "title": "Savoir-faire en action",
-    "description":
-      "Des composants animés, entre précision et créativité"
-  },
-  {
-    "title": "Durabilité et harmonie",
-    "description":
-      "écologie et équilibre au cœur de nos conceptions."
-  }],
+    {
+      "title": "Innovation",
+      "description": "Des templates pensés pour s’intégrer dans des projets modernes et agiles"
+    },
+    {
+      "title": "Ouverture internationale",
+      "description": "Des projets capables de s’adapter aux besoins globaux et multiculturels."
+    },
+    {
+      "title": "Savoir-faire en action",
+      "description": "Des composants animés, entre précision et créativité"
+    },
+    {
+      "title": "Durabilité et harmonie",
+      "description": "écologie et équilibre au cœur de nos conceptions."
+    }
+  ],
   "Services": [
     {
       "title": "Applications",
@@ -52,9 +49,9 @@
       "description2": "Un design impactant pour captiver et inspirer vos utilisateurs.",
       "description3": "Création d’animations et prototypes immersifs."
     }
-  ],  
+  ],
   "Contacts": {
-   "title": "On en parle ?"
+    "title": "On en parle ?"
   },
   "Projects": {
     "dependant-tv": {

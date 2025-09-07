@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { Head } from "@/components/layouts/Head/Head";
@@ -120,10 +119,6 @@ export const ProjectDetails = ({ project }: ProjectDetailProps) => {
   const leftColumnSections = useMemo(
     () => [
       {
-        id: "image",
-        content: <img src="" alt="" />,
-      },
-      {
         id: "description",
         title: "Description du projet",
         content: <p>{project.longDescription}</p>,
@@ -132,11 +127,16 @@ export const ProjectDetails = ({ project }: ProjectDetailProps) => {
         id: "features",
         title: "Fonctionnalités principales",
         content: (
-          <ul>
-            {project.features.map((f) => (
-              <li key={f}>{f}</li>
+          <div className={cx("features-list")}>
+            {project.features.map((f, index) => (
+              <React.Fragment key={f}>
+                <div className={cx("feature-item")}>{f}</div>
+                {index < project.features.length - 1 && (
+                  <div className={cx("feature-separator")} />
+                )}
+              </React.Fragment>
             ))}
-          </ul>
+          </div>
         ),
       },
     ],
